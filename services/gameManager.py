@@ -2,7 +2,7 @@ import numpy as np
 
 class GameManager():
     
-    def __init__(self, board, turn_Monitor):
+    def __init__(self, board, turn):
         
         """
         
@@ -15,7 +15,7 @@ class GameManager():
     
         
         self.board = board
-        self.turn_Monitor = turn_Monitor
+        self.turn = turn
         
     
     def get_board_state(self):

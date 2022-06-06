@@ -1,11 +1,14 @@
 from services.gameManager import GameManager
-from services.turnMonitor import TurnMonitor
 from models.game import Game
 
 game = Game()
 
-turnMonitor = TurnMonitor()
 
-gameManager = GameManager(game.board, turnMonitor)
+print(f' testing toss : start-player is : {game.toss()}')
+      
+      
+gameManager = GameManager(game.board, game.turn)
 
-print(gameManager.get_board_state())
+
+print(' testing board_state_request -> inital board_state is :')
+print(f'{gameManager.get_board_state()}')

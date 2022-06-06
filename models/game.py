@@ -10,8 +10,27 @@ class Game():
         set a 3x3 matrix filled with Nans as a start board.
         Two players will start to overwrite the 2s with 0 or 1 values.
         
+        creare variable to save current Player name
         """
         self.board = np.full((3,3),np.nan)
+        self.turn = None
+    
+    def toss(self):
+        
+        """Function to simulate a toss and decide which player goes first
+
+        Args:
+
+        Returns:
+        Returns 1 if player assigned mark 1 has won, or 0 if his opponent won
+
+        """
+        self.turn=np.random.randint(0,2,size=1)
+        if self.turn.mean() == 0:
+            self.turn = 'A'
+        elif self.turn.mean() == 1:
+            self.turn = 'B'
+        return self.turn
         
   
     
