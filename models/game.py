@@ -11,7 +11,7 @@ class Game(Object):
         Two players will start to overwrite the 2s with 0 or 1 values.
         
         """
-        self.board=np.full((3,3),np.nan)
+        self.board = np.full((3,3),np.nan)
         
   
     
