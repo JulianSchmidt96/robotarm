@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class Game(Object):
+class Game():
     
     def __init__(self):
         
