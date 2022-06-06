@@ -30,18 +30,21 @@ class Game(Object):
     
     
         
-    def is_valid(self, coordinates, value):
+    def set(self, coordinates, value):
         
         """
         _summary_
             Args:
                 coordinates (list of integers): col, row coordinates where value is set
                 value ( int) : 0 or 1 ( depending on player)
+            Returns:
+                bool:   True if move was valid
+                        False if move was not valid
         
         
         _description_
             Check if coordinates and value are valid
-            Replace value at the given coordinates with the given value
+            Replace value at the given coordinates with the given value and return True/False depending if move was valid
         """
         
         if not (coordinates[0] >= 0 and coordinates[0] <= 2):
