@@ -9,13 +9,14 @@ class GameManager():
         _summary_
             Args:
                 board (object): from Game class
-                player (string): A or B
+                player (string): 0 or 1
                 
         """
     
         
         self.board = board
         self.turn = turn
+        
         
     
     def get_board_state(self):
@@ -56,7 +57,7 @@ class GameManager():
             return "In Progress"
         
     
-    def legal_moves_generator(board,turn_Monitor):
+    def legal_moves_generator(self):
         
         """
     
@@ -77,13 +78,21 @@ class GameManager():
 
 
         """
-            
-        current_board_state = get_board_state(board)
+        board = self.board
+        turn = self.turn
+        
+        current_board_state = board
         legal_moves_dict={}
         for i in range(current_board_state.shape[0]):
             for j in range(current_board_state.shape[1]):
                 if current_board_state[i,j] == np.nan:
+                    
                     board_state_copy=current_board_state.copy()
-                    board_state_copy[i,j] = turn_monitor
+                    board_state_copy[i,j] = turn
                     legal_moves_dict[(i,j)] = board_state_copy.flatten()
         return legal_moves_dict
+    
+    
+    
+    
+        

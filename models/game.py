@@ -27,9 +27,9 @@ class Game():
         """
         self.turn=np.random.randint(0,2,size=1)
         if self.turn.mean() == 0:
-            self.turn = 'A'
+            self.turn = 0
         elif self.turn.mean() == 1:
-            self.turn = 'B'
+            self.turn = 1
         return self.turn
         
   
@@ -74,11 +74,11 @@ class Game():
             print('y coordinate is wrong')
             return False
         
-        if not (value == 'A' or value =='B'):
+        if not (value == 1 or value ==0):
             print('value is invalid')
             return False
         
-        board[coordinates[0],coordinates[1]]=value
+        self.board[coordinates[0],coordinates[1]]=value
                         
             
         return True
