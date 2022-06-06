@@ -2,7 +2,7 @@ import numpy as np
 
 class GameManager():
     
-    def __init__(self, board, turn):
+    def __init__(self, game):
         
         """
         
@@ -13,10 +13,9 @@ class GameManager():
                 
         """
     
+        self.game = game
         
-        self.board = board
-        self.turn = turn
-        
+     
         
     
     def get_board_state(self):
@@ -35,8 +34,10 @@ class GameManager():
                 whether the game has been won, drawn or is in progress
 
         """
-        board = self.board
+        board = self.game.board
         print(board)
+        print(' ')
+        print(f' its {self.game.turn} turn')
         #check for a win along rows
         for i in range(board.shape[0]):
             if np.nan not in board[i,:] and len(set(board[i,:]))==1:
@@ -78,8 +79,8 @@ class GameManager():
 
 
         """
-        board = self.board
-        turn = self.turn
+        board = self.game.board
+        turn = self.game.turn
         
         current_board_state = board
         legal_moves_dict={}
@@ -89,10 +90,13 @@ class GameManager():
                     
                     board_state_copy=current_board_state.copy()
                     board_state_copy[i,j] = turn
-                    legal_moves_dict[(i,j)] = board_state_copy.flatten()
+                    legal_moves_dict[(i,j)] = board_state_copy
+                    
         return legal_moves_dict
     
     
     
     
+    def set(self, coordinates):
+        self.game.set(coordinates)
         

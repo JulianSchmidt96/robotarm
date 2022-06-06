@@ -31,6 +31,19 @@ class Game():
         elif self.turn.mean() == 1:
             self.turn = 1
         return self.turn
+    
+    def switch_turn(self):
+        turn = self.turn
+        if turn == 0:
+            self.turn = 1
+        if turn == 1:
+            self.turn = 0
+        return True
+        
+            
+        
+        
+        
         
   
     
@@ -49,7 +62,7 @@ class Game():
     
     
         
-    def set(self, coordinates, value):
+    def set(self, coordinates):
         
         """
         _summary_
@@ -74,11 +87,17 @@ class Game():
             print('y coordinate is wrong')
             return False
         
-        if not (value == 1 or value ==0):
+        if not (self.turn == 1 or self.turn ==0):
             print('value is invalid')
             return False
         
-        self.board[coordinates[0],coordinates[1]]=value
-                        
+        
+        if not np.isnan(self.board[coordinates[0],coordinates[1]]):
+            print('Field allready taken')
+            return False
+        
+        self.board[coordinates[0],coordinates[1]] = self.turn
+        self.switch_turn()
             
         return True
+    
