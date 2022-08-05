@@ -1,5 +1,6 @@
 from services.gameManager import GameManager
 from models.game import Game
+import dlmodel as dlm
 
 game = Game()
 
@@ -20,17 +21,9 @@ print('testing game set method:')
 
 gameManager.set([0,1])
 
-print(' ')
 
-print('get board state after set method with Game Manager:')
-print(' ')
-print(f'{gameManager.get_board_state()}')
+model = dlm.build_model(100)
 
-gameManager.set([0,1])
 
-print(' ')
 
-print('get board state after set method with Game Manager:')
-print(' ')
-print(f'{gameManager.get_board_state()}')
-
+dlm.train_model(model,'hard',gameManager )
