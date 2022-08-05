@@ -12,7 +12,7 @@ class Game():
         
         creare variable to save current Player name
         """
-        self.board = np.full((3,3),np.nan)
+        self.board = np.full((3,3),2)
         self.turn = None
     
     def toss(self):
@@ -92,7 +92,7 @@ class Game():
             return False
         
         
-        if not np.isnan(self.board[coordinates[0],coordinates[1]]):
+        if not self.board[coordinates[0],coordinates[1]] == 2:
             print('Field allready taken')
             return False
         

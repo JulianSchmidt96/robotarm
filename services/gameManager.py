@@ -18,7 +18,7 @@ class GameManager():
      
         
     
-    def get_board_state(self):
+    def get_board_state(self, verbose=0):
         
         """
         
@@ -35,24 +35,25 @@ class GameManager():
 
         """
         board = self.game.board
-        print(board)
-        print(' ')
-        print(f' its {self.game.turn} turn')
+        if verbose:
+            print(board)
+            print(' ')
+            print(f' its {self.game.turn} turn')
         #check for a win along rows
         for i in range(board.shape[0]):
-            if np.nan not in board[i,:] and len(set(board[i,:]))==1:
+            if 2 not in board[i,:] and len(set(board[i,:]))==1:
                 return "Won"
         #check for a win along columns
         for j in range(board.shape[1]):
-            if np.nan not in board[:,j] and len(set(board[:,j]))==1:
+            if 2 not in board[:,j] and len(set(board[:,j]))==1:
                 return "Won"
         # check for a win along diagonals
-        if np.nan not in np.diag(board) and len(set(np.diag(board)))==1:
+        if 2 not in np.diag(board) and len(set(np.diag(board)))==1:
             return "Won"
-        if np.nan not in np.diag(np.fliplr(board)) and len(set(np.diag(np.fliplr(board))))==1:
+        if 2 not in np.diag(np.fliplr(board)) and len(set(np.diag(np.fliplr(board))))==1:
             return "Won"
         # check for a Draw
-        if not np.isnan(board).any():
+        if not 2 in board:
             return "Drawn"
         else:
             return "In Progress"
@@ -86,7 +87,7 @@ class GameManager():
         legal_moves_dict={}
         for i in range(current_board_state.shape[0]):
             for j in range(current_board_state.shape[1]):
-                if current_board_state[i,j] == np.nan:
+                if current_board_state[i,j] == 2:
                     
                     board_state_copy=current_board_state.copy()
                     board_state_copy[i,j] = turn
