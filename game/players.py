@@ -40,7 +40,7 @@ class AIPlayer:
         
         #logits[:,mask] = 0
        
-        #board[mask] = 0
+        board[mask] = 0
 
 
         # Berechne Softmax-Werte für alle möglichen Züge

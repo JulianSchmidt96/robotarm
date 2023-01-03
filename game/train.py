@@ -104,6 +104,6 @@ if __name__ == "__main__":
     player_1 = AIPlayer(model1)
     player_2 = AIPlayer(model2)
     # Training starten
-    NUM_GAMES = 30
+    NUM_GAMES = 300000
     train_with_reward(NUM_GAMES, player_1, player_2, optimizer1, optimizer2, DEVICE,reward_function)
     
