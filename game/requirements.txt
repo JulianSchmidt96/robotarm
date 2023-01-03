@@ -1,0 +1,5 @@
+numpy
+flask
+flask-cors
+torch
+torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
